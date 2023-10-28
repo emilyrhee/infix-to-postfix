@@ -41,4 +41,13 @@ class Stack {
     public int size() {
         return size;
     }
+
+    public void printStack() {
+        Node current = top;
+        while (current != null) {
+            System.out.print(current.getData() + " ");
+            current = current.getNext();
+        }
+        System.out.println();
+    }    
 }
