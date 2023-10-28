@@ -18,10 +18,7 @@ class Queue{
    	}
 
 	public void enqueue(int number) {
-     	Node newNode = new Node();
-
-     	newNode.setData(number);
-     	newNode.setNext(null);
+     	Node newNode = new Node(number, null);
 
      	if (this.empty()) {
        		front = newNode;
