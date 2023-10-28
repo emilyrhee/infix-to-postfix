@@ -2,10 +2,10 @@ class Stack {
     private Node top;
     private int size;
 
-    public LLStackADT() {
+    public Stack() {
         top = null;
         size = 0;
-    }          
+    }
 
     public boolean empty() {
         return (top == null);
