@@ -2,6 +2,10 @@ class Node {
     private int data;
     private Node next;
 
+    public Node() {
+        this(0, null);   
+    }
+
     public Node(int d) {
         data = d;
     }
