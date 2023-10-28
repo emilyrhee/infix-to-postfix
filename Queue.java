@@ -31,17 +31,17 @@ class Queue{
    	}
 
    	public String dequeue() {
-     	String i;
+     	String dequeued;
 
-     	i = front.getData();
+     	dequeued = front.getData();
      	front = front.getNext();
 
      	size--;
 
-     	if (this.empty())
+     	if (this.empty()) 
         	rear = null;
 
-     	return i;
+     	return dequeued;
    	}
 
    	public String getFront() {
