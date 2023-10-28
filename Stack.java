@@ -11,16 +11,16 @@ class Stack {
         return (top == null);
     }
 
-    public void push (int number) {
-        Node newNode = new Node(number, top);
+    public void push(String data) {
+        Node newNode = new Node(data, top);
 
         top = newNode;
 
         size++;     
     }
 
-    public int pop () {
-        int i;
+    public String pop() {
+        String i;
 
         i = top.getData();
         top = top.getNext();
@@ -30,8 +30,8 @@ class Stack {
         return i;
     }
 
-    public int ontop() {
-        int i = pop();
+    public String ontop() {
+        String i = pop();
 
         push(i);
 
