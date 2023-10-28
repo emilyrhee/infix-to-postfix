@@ -51,4 +51,13 @@ class Queue{
 	public String getRear() {
 		return rear.getData();
 	}
+
+	public void printQueue() {
+		Node current = front;
+		while (current != null) {
+			System.out.print(current.getData() + " ");
+			current = current.getNext();
+		}
+		System.out.println();
+	}	
 }
