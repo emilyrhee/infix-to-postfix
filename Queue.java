@@ -17,8 +17,8 @@ class Queue{
       	return size;
    	}
 
-	public void enqueue(int number) {
-     	Node newNode = new Node(number, null);
+	public void enqueue(String data) {
+     	Node newNode = new Node(data, null);
 
      	if (this.empty()) {
        		front = newNode;
@@ -30,8 +30,8 @@ class Queue{
      	size++;
    	}
 
-   	public int dequeue() {
-     	int i;
+   	public String dequeue() {
+     	String i;
 
      	i = front.getData();
      	front = front.getNext();
@@ -44,7 +44,11 @@ class Queue{
      	return i;
    	}
 
-   	public int front() {
+   	public String getFront() {
      	return front.getData();
    	}
+
+	public String getRear() {
+		return rear.getData();
+	}
 }

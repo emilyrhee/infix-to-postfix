@@ -1,21 +1,21 @@
 class Node {
-    private int data;
+    private String data;
     private Node next;
 
     public Node() {
-        this(0, null);   
+        this("0", null);   
     }
 
-    public Node(int d) {
+    public Node(String d) {
         data = d;
     }
     
-    public Node(int d, Node n) {
+    public Node(String d, Node n) {
         data = d;
         next = n;
     }
     
-    public void setData(int newData) {
+    public void setData(String newData) {
         data = newData;
     }
     
@@ -23,7 +23,7 @@ class Node {
         next = newNext;
     }
     
-    public int getData() {
+    public String getData() {
         return data;
     }
     
