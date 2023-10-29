@@ -15,7 +15,7 @@ class Main {
     }
 
     public static void main(String[] args) {
-        String infixExp = "13 + 5"; // elements must be separated by space
+        String infixExp = "1 + 2 * 3 + 4"; // elements must be separated by space
 
         String[] infixArray = infixExp.split(" ");
 
@@ -27,15 +27,25 @@ class Main {
             infixQueue.enqueue(infixArray[i]);
         }
 
-        for (int i = 0; i < 3; i++) {
-            if (priority(infixQueue.getFront()) == 0) {
-                postfixQueue.enqueue(infixQueue.dequeue());
-            } else {
+        for (int i = 0; i < infixArray.length; i++) {
+            if (priority(infixQueue.getFront()) > 0) {
+                while (!operators.empty() && priority(operators.ontop()) >= priority(infixQueue.getFront())) {
+                    postfixQueue.enqueue(operators.pop());
+                }
+
                 operators.push(infixQueue.dequeue());
+            } else {
+                postfixQueue.enqueue(infixQueue.dequeue());
             }
         }
-        
-        System.out.println("Infix expression: " + infixExp);
-        //System.out.println("Postfix expression: ");
+
+        while (!operators.empty()) {
+            postfixQueue.enqueue(operators.pop());
+        }
+
+        System.out.println("Infix: " + infixExp);
+
+        System.out.print("Postfix: "); 
+        postfixQueue.printQueue();
     }
 }
