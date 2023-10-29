@@ -11,7 +11,7 @@ class Main {
             case "/":
                 return 2;
         }
-        return -1;
+        return 0;
     }
 
     public static void main(String[] args) {
@@ -27,6 +27,14 @@ class Main {
             infixQueue.enqueue(infixArray[i]);
         }
 
+        for (int i = 0; i < 3; i++) {
+            if (priority(infixQueue.getFront()) == 0) {
+                postfixQueue.enqueue(infixQueue.dequeue());
+            } else {
+                operators.push(infixQueue.dequeue());
+            }
+        }
+        
         System.out.println("Infix expression: " + infixExp);
         //System.out.println("Postfix expression: ");
     }
