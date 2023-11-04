@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 class Main {
     static int priority(String s) {
         switch (s) {
