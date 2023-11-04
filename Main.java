@@ -23,7 +23,7 @@ class Main {
     }
 
     public static void main(String[] args) {
-        String infixExp = "( 3 + 4 ) / 1"; // elements must be separated by space
+        String infixExp = "3 + 5 * 2 - ( 4 / 2 )"; // elements must be separated by space
 
         String[] infixArray = infixExp.split(" ");
 
@@ -44,6 +44,15 @@ class Main {
                 operators.push(infixQueue.dequeue());
             } else if (stringsAreEqual(infixQueue, "(")) {
                 operators.push(infixQueue.dequeue());
+            } else if (stringsAreEqual(infixQueue, ")")) {
+                infixQueue.dequeue();
+
+                String x = operators.pop();
+
+                while (!x.equals("(")) {
+                    postfixQueue.enqueue(x);
+                    x = operators.pop();
+                }
             } else {
                 postfixQueue.enqueue(infixQueue.dequeue());
             }
