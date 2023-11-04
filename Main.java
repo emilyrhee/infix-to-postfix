@@ -59,10 +59,21 @@ class Main {
         while (!operators.empty()) {
             postfixQueue.enqueue(operators.pop());
         }
+
         return postfixQueue;
     }
     
-    static int evaluatePostfix() {
+    static int evaluatePostfix(Queue postfix) {
+        Stack operators = new Stack();
+        Stack values = new Stack();
+
+        while (!postfix.empty()) {
+            if (isOperator(postfix)) {
+                operators.push(postfix.dequeue());
+            } else {
+                values.push(postfix.dequeue());
+            }
+        }
 
         return 2;
     }
@@ -72,9 +83,11 @@ class Main {
 
         System.out.println("Infix: " + infixExp);
 
-        System.out.print("Postfix: ");
-        infixToPostfix(infixExp).printQueue();
+        Queue postfix = infixToPostfix(infixExp);
 
-        System.out.println("Evaluation: " + evaluatePostfix());
+        System.out.print("Postfix: ");
+        postfix.printQueue();
+
+        System.out.println("Evaluation: " + evaluatePostfix(postfix));
     }
 }
