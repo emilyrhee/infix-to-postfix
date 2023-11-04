@@ -12,8 +12,14 @@ class Main {
         return 0;
     }
 
+    static boolean isOperator(Queue s) {
+        if (priority(s.getFront()) > 0) {
+            return true;
+        } else return false;
+    }
+
     public static void main(String[] args) {
-        String infixExp = "1 + 2 * 3 + 4"; // elements must be separated by space
+        String infixExp = "3 + 4 / 1"; // elements must be separated by space
 
         String[] infixArray = infixExp.split(" ");
 
@@ -26,7 +32,7 @@ class Main {
         }
 
         for (int i = 0; i < infixArray.length; i++) {
-            if (priority(infixQueue.getFront()) > 0) {
+            if (isOperator(infixQueue)) {
                 while (!operators.empty() && priority(operators.ontop()) >= priority(infixQueue.getFront())) {
                     postfixQueue.enqueue(operators.pop());
                 }
