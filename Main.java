@@ -19,7 +19,7 @@ class Main {
     }
 
     public static void main(String[] args) {
-        String infixExp = "3 + 4 / 1"; // elements must be separated by space
+        String infixExp = "( 3 + 4 ) / 1"; // elements must be separated by space
 
         String[] infixArray = infixExp.split(" ");
 
@@ -37,6 +37,8 @@ class Main {
                     postfixQueue.enqueue(operators.pop());
                 }
 
+                operators.push(infixQueue.dequeue());
+            } else if (infixQueue.getFront().equals("(")) {
                 operators.push(infixQueue.dequeue());
             } else {
                 postfixQueue.enqueue(infixQueue.dequeue());
