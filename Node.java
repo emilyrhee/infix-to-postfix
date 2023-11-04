@@ -1,37 +1,38 @@
-class Node {
-    private String data;
-    private Node next;
+public class Node<T> {
+    private T data;
+    private Node<T> next;
 
     public Node() {
-        this("0", null);   
+        this(null, null);
     }
 
-    public Node(String d) {
+    public Node(T d) {
         data = d;
+        next = null;
     }
     
-    public Node(String d, Node n) {
+    public Node(T d, Node<T> n) {
         data = d;
         next = n;
     }
     
-    public void setData(String newData) {
+    public void setData(T newData) {
         data = newData;
     }
     
-    public void setNext(Node newNext) {
+    public void setNext(Node<T> newNext) {
         next = newNext;
     }
     
-    public String getData() {
+    public T getData() {
         return data;
     }
     
-    public Node getNext() {
+    public Node<T> getNext() {
        return next;
     }
     
     public void printNodeData() {
        System.out.println(data);
     }
- }
+}

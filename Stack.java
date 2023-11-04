@@ -1,5 +1,5 @@
-class Stack {
-    private Node top;
+public class Stack<T> {
+    private Node<T> top;
     private int size;
 
     public Stack() {
@@ -11,31 +11,21 @@ class Stack {
         return (top == null);
     }
 
-    public void push(String data) {
-        Node newNode = new Node(data, top);
-
+    public void push(T data) {
+        Node<T> newNode = new Node<>(data, top);
         top = newNode;
-
         size++;     
     }
 
-    public String pop() {
-        String i;
-
-        i = top.getData();
+    public T pop() {
+        T data = top.getData();
         top = top.getNext();
-
         size--;
-
-        return i;
+        return data;
     }
 
-    public String ontop() {
-        String i = pop();
-
-        push(i);
-
-        return i;
+    public T ontop() {
+        return top.getData();
     }
 
     public int size() {
@@ -43,11 +33,29 @@ class Stack {
     }
 
     public void printStack() {
-        Node current = top;
+        Node<T> current = top;
         while (current != null) {
             System.out.print(current.getData() + " ");
             current = current.getNext();
         }
         System.out.println();
     }    
+}
+
+class Node<T> {
+    private T data;
+    private Node<T> next;
+
+    public Node(T data, Node<T> next) {
+        this.data = data;
+        this.next = next;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public Node<T> getNext() {
+        return next;
+    }
 }

@@ -12,22 +12,22 @@ class Main {
         return 0;
     }
 
-    static boolean isOperator(Queue s) {
+    static boolean isOperator(Queue<String> s) {
         if (priority(s.getFront()) > 0) {
             return true;
         } else return false;
     }
 
-    static boolean stringsAreEqual(Queue q, String s) {
+    static boolean stringsAreEqual(Queue<String> q, String s) {
         return q.getFront().equals(s);
     }
 
-    static Queue infixToPostfix(String s) {
+    static Queue<String> infixToPostfix(String s) {
         String[] infixArray = s.split(" ");
 
-        Queue infixQueue = new Queue();
-        Stack operators = new Stack();
-        Queue postfixQueue = new Queue();
+        Queue<String> infixQueue = new Queue<>();
+        Stack<String> operators = new Stack<>();
+        Queue<String> postfixQueue = new Queue<>();
 
         for (int i = 0; i < infixArray.length; i++) {
             infixQueue.enqueue(infixArray[i]);
@@ -64,16 +64,18 @@ class Main {
     }
     
     static int evaluatePostfix(Queue postfix) {
-        Stack operators = new Stack();
-        Stack values = new Stack();
+        //Stack values = new Stack();
 
-        while (!postfix.empty()) {
-            if (isOperator(postfix)) {
-                operators.push(postfix.dequeue());
-            } else {
-                values.push(postfix.dequeue());
-            }
-        }
+        // while (!postfix.empty()) {
+        //     if (!isOperator(postfix)) {
+        //         values.push(postfix.dequeue());
+        //     } else {
+        //         int value1 = values.pop();
+        //         int value1 = values.pop();
+                
+        //         values.push(Integer.parseInt(value1) )
+        //     }
+        // }
 
         return 2;
     }
@@ -83,7 +85,7 @@ class Main {
 
         System.out.println("Infix: " + infixExp);
 
-        Queue postfix = infixToPostfix(infixExp);
+        Queue<String> postfix = infixToPostfix(infixExp);
 
         System.out.print("Postfix: ");
         postfix.printQueue();
