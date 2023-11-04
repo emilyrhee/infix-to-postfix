@@ -18,6 +18,10 @@ class Main {
         } else return false;
     }
 
+    static boolean stringsAreEqual(Queue q, String s) {
+        return q.getFront().equals(s);
+    }
+
     public static void main(String[] args) {
         String infixExp = "( 3 + 4 ) / 1"; // elements must be separated by space
 
@@ -38,7 +42,7 @@ class Main {
                 }
 
                 operators.push(infixQueue.dequeue());
-            } else if (infixQueue.getFront().equals("(")) {
+            } else if (stringsAreEqual(infixQueue, "(")) {
                 operators.push(infixQueue.dequeue());
             } else {
                 postfixQueue.enqueue(infixQueue.dequeue());
