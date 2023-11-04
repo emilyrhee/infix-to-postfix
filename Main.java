@@ -63,19 +63,17 @@ class Main {
         return postfixQueue;
     }
     
-    static int evaluatePostfix(Queue postfix) {
-        //Stack values = new Stack();
+    static int evaluatePostfix(Queue<String> postfix) {
+        Stack<Integer> values = new Stack<>();
 
-        // while (!postfix.empty()) {
-        //     if (!isOperator(postfix)) {
-        //         values.push(postfix.dequeue());
-        //     } else {
-        //         int value1 = values.pop();
-        //         int value1 = values.pop();
-                
-        //         values.push(Integer.parseInt(value1) )
-        //     }
-        // }
+        while (!postfix.empty()) {
+            if (!isOperator(postfix)) {
+                values.push(Integer.parseInt(postfix.dequeue()));
+            } else {
+                postfix.dequeue();
+            }
+            values.printStack();
+        }
 
         return 2;
     }
