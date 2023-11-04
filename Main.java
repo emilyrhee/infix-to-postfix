@@ -22,10 +22,8 @@ class Main {
         return q.getFront().equals(s);
     }
 
-    public static void main(String[] args) {
-        String infixExp = "3 + 5 * 2 - ( 4 / 2 )"; // elements must be separated by space
-
-        String[] infixArray = infixExp.split(" ");
+    static Queue infixToPostfix(String s) {
+        String[] infixArray = s.split(" ");
 
         Queue infixQueue = new Queue();
         Stack operators = new Stack();
@@ -61,10 +59,22 @@ class Main {
         while (!operators.empty()) {
             postfixQueue.enqueue(operators.pop());
         }
+        return postfixQueue;
+    }
+    
+    static int evaluatePostfix() {
+
+        return 2;
+    }
+
+    public static void main(String[] args) {
+        String infixExp = "3 + 5 * 2 - ( 4 / 2 )"; // elements must be separated by space
 
         System.out.println("Infix: " + infixExp);
 
-        System.out.print("Postfix: "); 
-        postfixQueue.printQueue();
+        System.out.print("Postfix: ");
+        infixToPostfix(infixExp).printQueue();
+
+        System.out.println("Evaluation: " + evaluatePostfix());
     }
 }
