@@ -70,16 +70,31 @@ class Main {
             if (!isOperator(postfix)) {
                 values.push(Integer.parseInt(postfix.dequeue()));
             } else {
-                postfix.dequeue();
+                int value1 = values.pop();
+                int value2 = values.pop();
+
+                switch (postfix.dequeue()) {
+                    case "+":
+                        values.push(value1 + value2);
+                        break;
+                    case "-":
+                        values.push(value2 - value1);
+                        break;
+                    case "/":
+                        values.push(value2 / value1);
+                        break;
+                    case "*":
+                        values.push(value2 * value1);
+                        break;
+                }
             }
-            values.printStack();
         }
 
-        return 2;
+        return values.ontop();
     }
 
     public static void main(String[] args) {
-        String infixExp = "3 + 5 * 2 - ( 4 / 2 )"; // elements must be separated by space
+        String infixExp = "( 4 - 2 ) * 4 - 5 / 3"; // elements must be separated by space
 
         System.out.println("Infix: " + infixExp);
 
