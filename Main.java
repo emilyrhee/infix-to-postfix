@@ -13,9 +13,7 @@ class Main {
     }
 
     static boolean isOperator(Queue<String> s) {
-        if (priority(s.getFront()) > 0) {
-            return true;
-        } else return false;
+        return (priority(s.getFront()) > 0);
     }
 
     static boolean stringsAreEqual(Queue<String> q, String s) {
